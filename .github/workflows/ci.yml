@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.27.x"
+          cache: true
+
+      - name: Check formatting
+        shell: pwsh
+        run: |
+          $files = gofmt -l .
+          if ($files) { Write-Output "gofmt 未格式化的文件:"; Write-Output $files; exit 1 }
+
+      - name: Vet
+        # -unsafeptr=false: Windows 钩子回调的标准写法会触发 unsafeptr 误报
+        run: go vet -unsafeptr=false ./...
+
+      - name: Test
+        run: go test ./...
+
+      - name: Build background remapper
+        run: go build -ldflags "-s -w -H=windowsgui" -o release/NBA2K27_KeyboardRemap.exe ./cmd/remap
+
+      - name: Build GUI tool
+        run: go build -ldflags "-s -w -H=windowsgui" -o release/NBA2K27_Keyboard_GUI.exe ./cmd/gui
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nba2k27-keyboard-remap
+          path: release/
