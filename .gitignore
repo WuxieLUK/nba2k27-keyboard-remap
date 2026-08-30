@@ -1,0 +1,13 @@
+# 构建产物
+release/
+*.exe
+*.syso
+
+# 运行时生成
+bindings.ini
+bindings.ini.bak
+
+# 编辑器
+.vscode/
+.idea/
+*.swp

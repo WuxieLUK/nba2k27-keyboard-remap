@@ -1,0 +1,28 @@
+{
+  "FixedFileInfo": {
+    "FileVersion": { "Major": 5, "Minor": 0, "Patch": 0, "Build": 0 },
+    "ProductVersion": { "Major": 5, "Minor": 0, "Patch": 0, "Build": 0 },
+    "FileFlagsMask": "3f",
+    "FileFlags": "00",
+    "FileOS": "040004",
+    "FileType": "01",
+    "FileSubType": "00"
+  },
+  "StringFileInfo": {
+    "Comments": "NBA 2K27 图形界面改键工具",
+    "CompanyName": "yourname",
+    "FileDescription": "NBA 2K27 Keyboard Remap - 图形改键工具",
+    "FileVersion": "5.0.0",
+    "InternalName": "NBA2K27_Keyboard_GUI",
+    "LegalCopyright": "Copyright (c) 2025 yourname",
+    "LegalTrademarks": "",
+    "OriginalFilename": "NBA2K27_Keyboard_GUI.exe",
+    "PrivateBuild": "",
+    "ProductName": "NBA 2K27 Keyboard Remap",
+    "ProductVersion": "5.0.0",
+    "SpecialBuild": ""
+  },
+  "VarFileInfo": {
+    "Translation": { "LangID": "0804", "CharsetID": "04B0" }
+  }
+}
