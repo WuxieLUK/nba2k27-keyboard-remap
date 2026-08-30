@@ -11,7 +11,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/yourname/nba2k27-keyboard-remap/internal/keymap"
+	"github.com/WuxieLUK/nba2k27-keyboard-remap/internal/keymap"
 )
 
 // ---- Windows 常量 ----
