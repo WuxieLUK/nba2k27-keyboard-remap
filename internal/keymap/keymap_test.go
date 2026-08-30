@@ -20,7 +20,7 @@ func TestParseBasic(t *testing.T) {
 		"NUMPAD+": VK_ADD, "NUMPAD-": VK_SUBTRACT,
 		"NUMPAD*": VK_MULTIPLY, "NUMPAD/": VK_DIVIDE,
 		"NUMPADENTER": VK_RETURN,
-		"F1": VK_F1, "F12": VK_F12, "F24": VK_F24,
+		"F1":          VK_F1, "F12": VK_F12, "F24": VK_F24,
 		"COMMA": VK_OEM_COMMA, "PERIOD": VK_OEM_PERIOD,
 		"-": VK_OEM_MINUS, "=": VK_OEM_PLUS, "[": VK_OEM_4,
 		"]": VK_OEM_6, "\\": VK_OEM_5, ";": VK_OEM_1,
@@ -236,10 +236,10 @@ ARROW_RIGHT=RIGHT
 		t.Fatalf("LoadConfig: %v", err)
 	}
 	want := map[string]string{
-		"SPRINT":     "NUMPADENTER",
-		"PAUSE_MENU": "PGDN",
-		"TIMEOUT":    "PGUP",
-		"ICON_PASS":  "NUMPAD+",
+		"SPRINT":         "NUMPADENTER",
+		"PAUSE_MENU":     "PGDN",
+		"TIMEOUT":        "PGUP",
+		"ICON_PASS":      "NUMPAD+",
 		"PRO_STICK_DOWN": "COMMA",
 	}
 	for id, name := range want {
