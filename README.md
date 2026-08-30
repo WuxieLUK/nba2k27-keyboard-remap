@@ -67,7 +67,7 @@ SHOOT=SPACE
 
 ## 构建
 
-需要 [Go 1.21+](https://go.dev/dl/)（Windows）：
+需要 [Go 1.27+](https://go.dev/dl/)（Windows）：
 
 ```bat
 build.bat
