@@ -124,6 +124,10 @@ var (
 	cfg      *keymap.Config
 	bindings []*binding
 	sending  bool // 发送目标键期间置位，防止钩子递归
+
+	// syscall.NewCallback 生成的函数指针必须保持全局引用，否则可能被 GC 回收。
+	keyboardProcCallback = syscall.NewCallback(keyboardProc)
+	wndProcCallback      = syscall.NewCallback(wndProc)
 )
 
 type binding struct {
@@ -160,7 +164,7 @@ func main() {
 	createHiddenWindow(hInst)
 
 	hook, _, _ := procSetWindowsHookExW.Call(
-		whKeyboardLL, syscall.NewCallback(keyboardProc), hInst, 0)
+		whKeyboardLL, keyboardProcCallback, hInst, 0)
 	if hook == 0 {
 		fatal("键盘钩子安装失败")
 	}
@@ -318,7 +322,7 @@ func createHiddenWindow(hInst uintptr) {
 	className, _ := syscall.UTF16PtrFromString(windowClass)
 	wc := wndclassexw{
 		CbSize:        uint32(unsafe.Sizeof(wndclassexw{})),
-		LpfnWndProc:   syscall.NewCallback(wndProc),
+		LpfnWndProc:   wndProcCallback,
 		HInstance:     hInst,
 		LpszClassName: className,
 	}
