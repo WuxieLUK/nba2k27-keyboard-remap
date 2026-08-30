@@ -1,0 +1,16 @@
+# 行尾规范（gofmt 要求 LF，Windows 批处理要求 CRLF）
+*.go    text eol=lf
+*.mod   text eol=lf
+*.md    text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.txt   text eol=lf
+
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+*.exe   binary
+*.png   binary
+*.jpg   binary
